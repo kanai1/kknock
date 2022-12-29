@@ -29,7 +29,7 @@
 			exit();
 		}
 
-		$sql = "SELECT * FROM board WHERE title LIKE %{$_GET['query']}% OR user_name LIKE %{$_GET['query']}%";
+		$sql = "SELECT * FROM board WHERE title LIKE '%{$query}%' OR user_name LIKE '%{$query}%'";
 
 		$result = mysqli_query($conn, $sql);
 		$rows_count = mysqli_num_rows($result);
