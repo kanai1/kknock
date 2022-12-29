@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>로그인 페이지</title>
+
+	<style>
+		input {width: 95%; padding: 0 2px 0 0; border-top: 0; border-left: 0; border-right: 0;}
+	</style>
+	<script scr="login.js"></script>
+</head>
+<body>
+	<div>
+		<fieldset style="width:250px; margin:10% auto;">
+			<legend>로그인</legend>
+			<form method="POST" action="signin.php">
+				<div style="float:left; width:100%;">
+					<input type="text" title="ID" id="userId" name = "txtId" placeholder="아이디" required="required">
+					<input type="password" title="password" id="userPass" name = "txtPassword" placeholder="비밀번호" required="required">
+					<button type="summit" title="login" id="login" style="width:95%; margin-top:2px;" onclick="func1()">
+						<span>
+							로그인
+						</span>
+					</button>
+				</div>
+			</form>
+		</fieldset>
+	</div>
+</body>
+</html>
