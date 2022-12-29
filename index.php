@@ -20,6 +20,8 @@
 		}
 	</style>
 	<?php
+		session_start();
+	
 		$conn = mysqli_connect('localhost', 'kknock', 'kknock', 'test');
 		$sql_index = "SELECT * FROM board";
 		$result = mysqli_query($conn, $sql_index);
