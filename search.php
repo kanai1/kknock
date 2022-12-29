@@ -21,7 +21,7 @@
 	</style>
 	<?php
 		$query = $_GET['query'];
-		$conn = mysqli_connect('localhost', 'TeamA', 'TeamA1234567@', 'test');
+		$conn = mysqli_connect('localhost', 'kknock', 'kknock', 'test');
 
 		if(strrpos($query, "union"))
 		{
@@ -100,9 +100,18 @@
 				</tbody>
 			</table>
 		</div>
-		<button onclick="location.href='write.html'" style="float:right">
+		<?php
+			$heredoc = <<< HERE
+			<button onclick="location.href='write.html'" style="float:right">
 			<span>글쓰기</span>
-		</button>
+			</button>
+			HERE;
+
+			if(isset($_SESSION['user_id']))
+			{
+				echo $heredoc;
+			}
+		?>
 	</div>
 </body>
 </html>
