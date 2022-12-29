@@ -21,7 +21,7 @@
 	</style>
 	<?php
 		$query = $_GET['query'];
-		$conn = mysqli_connect('localhost', 'TeamA', 'TeamA1234567@', 'test');
+		$conn = mysqli_connect('localhost', 'kknock', 'kknock', 'test');
 
 		if(strrpos($query, "union") || strrpos($query, "sleep"))
 		{
