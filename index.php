@@ -20,7 +20,7 @@
 		}
 	</style>
 	<?php
-		$sql_index = "SELECT * FROM board ORDER BY post_num $order";
+		$sql_index = "SELECT * FROM board";
 		$result = mysqli_query($conn, $sql_index);
 	?>
 </head>
@@ -82,9 +82,19 @@
 				</tbody>
 			</table>
 		</div>
-		<button onclick="location.href='write.html'" style="float:right">
+		<?php
+			$heredoc = <<< HERE
+			<button onclick="location.href='write.html'" style="float:right">
 			<span>글쓰기</span>
-		</button>
+			</button>
+			HERE;
+
+			if(isset($_SESSION['user_id']))
+			{
+				echo $heredoc;
+			}
+		?>
+		
 	</div>
 </body>
 </html>
