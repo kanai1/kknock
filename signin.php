@@ -16,8 +16,6 @@
 			$conn = mysqli_connect('localhost', 'kknock', 'kknock', 'test');
 
 			$sql = "SELECT * FROM user_login WHERE login_id='$id' && login_pw='$password'";
-
-			$conn = mysqli_connect('localhost', 'TeamA', 'TeamA1234567@', 'test');
 			$stmt = mysqli_stmt_init($conn);
 			
 			mysqli_stmt_prepare($stmt, "SELECT * FROM user_login WHERE login_id=? && login_pw=?");
