@@ -14,7 +14,7 @@
 	{
 		$post_num = $_GET['number'];
 
-		$conn = mysqli_connect('localhost', 'TeamA', 'TeamA1234567@', 'test');
+		$conn = mysqli_connect('localhost', 'kknock', 'kknock', 'test');
 		$sql_find = "SELECT * FROM board WHERE post_num=$post_num";
 
 		if($result = mysqli_fetch_array(mysqli_query($conn, $sql_find)))
