@@ -26,7 +26,7 @@
 			$user_name = $_SESSION['user_name'];
 			$user_id = $_SESSION['user_id'];
 
-			$conn = mysqli_connect('localhost', 'TeamA', 'TeamA1234567@', 'test');
+			$conn = mysqli_connect('localhost', 'kknock', 'kknock', 'test');
 			$stmt = mysqli_stmt_init($conn);
 			
 			mysqli_stmt_prepare($stmt, "INSERT INTO board(title, body, user_id, user_name, posted) VALUES (?, ?, ?, ?, now())");
