@@ -38,7 +38,6 @@
 	<form action="search.php" methdo="get">
 		
 	</form>
-	<script src="main.js"></script>
 </head>
 <body>
 	<div>
