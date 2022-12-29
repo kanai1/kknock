@@ -13,7 +13,7 @@
 			$id = $_POST['txtId'];
 			$password = $_POST['txtPassword'];
 
-			$conn = mysqli_connect('localhost', 'TeamA', 'TeamA1234567@', 'test');
+			$conn = mysqli_connect('localhost', 'kknock', 'kknock', 'test');
 
 			$sql = "SELECT * FROM user_login WHERE login_id='$id' && login_pw='$password'";
 
