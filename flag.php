@@ -1,4 +1,5 @@
 <?php
+	session_start();
 	$flag = 'KCTF{this_is_flag!!}';
 
 	if(!isset($_SESSION['user_id']))
