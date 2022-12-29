@@ -21,9 +21,9 @@
 	</style>
 	<?php
 		$query = $_GET['query'];
-		$conn = mysqli_connect('localhost', 'kknock', 'kknock', 'test');
+		$conn = mysqli_connect('localhost', 'TeamA', 'TeamA1234567@', 'test');
 
-		if(strrpos($query, "union"))
+		if(strrpos($query, "union") || strrpos($query, "sleep"))
 		{
 			header("HTTP/1.0 500 Internal Server Error");
 			exit();
@@ -34,6 +34,7 @@
 		$result = mysqli_query($conn, $sql);
 		$rows_count = mysqli_num_rows($result);
 	?>
+
 	<form action="search.php" methdo="get">
 		
 	</form>
