@@ -14,12 +14,10 @@
 			$password = $_POST['txtPassword'];
 
 			$conn = mysqli_connect('localhost', 'kknock', 'kknock', 'test');
-
-			$sql = "SELECT * FROM user_login WHERE login_id='$id' && login_pw='$password'";
 			$stmt = mysqli_stmt_init($conn);
-			
 			mysqli_stmt_prepare($stmt, "SELECT * FROM user_login WHERE login_id=? && login_pw=?");
 			mysqli_stmt_bind_param($stmt, 'ss', $id, $password);
+			mysqli_stmt_execute($stmt);
 
 			if($result = mysqli_fetch_array(mysqli_stmt_get_result($stmt)))
 			{
