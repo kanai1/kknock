@@ -9,24 +9,32 @@
 	<style>
 		input {width: 95%; padding: 0 2px 0 0; border-top: 0; border-left: 0; border-right: 0;}
 	</style>
-	<script scr="login.js"></script>
 </head>
 <body>
 	<div>
 		<fieldset style="width:250px; margin:10% auto;">
 			<legend>로그인</legend>
 			<form method="POST" action="signin.php">
-				<div style="float:left; width:100%;">
+				<div style="float:left; width:70%;">
 					<input type="text" title="ID" id="userId" name = "txtId" placeholder="아이디" required="required">
 					<input type="password" title="password" id="userPass" name = "txtPassword" placeholder="비밀번호" required="required">
-					<button type="summit" title="login" id="login" style="width:95%; margin-top:2px;" onclick="func1()">
+					<button type="summit" title="login" id="login" style="width:95%; margin-top:2px;">
 						<span>
 							로그인
 						</span>
 					</button>
 				</div>
 			</form>
-		</fieldset>
+			<form method="GET" action="register.html">
+				<div style="float:right; width:30%; height:70px;">
+					<button type="summit" title="register" id="register" style="width:100%; height:100%">
+						<span>
+							회원가입
+						</span>
+					</button>
+				</div>
+			</fieldset>
+		</form>
 	</div>
 </body>
 </html>
