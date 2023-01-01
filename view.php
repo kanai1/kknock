@@ -54,26 +54,10 @@
 			color: black;
 		}
 	</style>
-	<script src="edit_comment.js"></script>
 </head>
 <body>
 	<div>
 		<h2><?php echo $result['title'] ?></h2>
-		<?php
-			if(isset($_SESSION['user_id']))
-			{
-				if($_SESSION['user_id'] == $result['user_id'])
-				{
-					$heredoc = <<<HERE
-					<button onclick="location.href='delete.php?number={$result['post_num']}'">삭제</button>
-					<button onclick="location.href='edit.php?number={$result['post_num']}'">수정</button>
-					HERE;
-					
-					echo $heredoc;
-				}
-			}
-		?>
 		<p> <?php echo nl2br($result['body']) ?></p>
-	</div>
 </body>
 </html>
