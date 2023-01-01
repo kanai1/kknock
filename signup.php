@@ -22,7 +22,7 @@
 			mysqli_stmt_prepare($stmt, $sql_id_find);
 			mysqli_stmt_bind_param($stmt, 's', $id);
 
-			if(mysqli_stmt_get_result($stmt))
+			if(mysqli_fetch_array(mysqli_stmt_get_result($stmt)))
 			{
 				$heredoc = <<< HERE
 				<span>이미 존재하는 아이디입니다.</span>
