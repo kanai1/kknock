@@ -83,7 +83,7 @@
 					<?php
 						if($filtering)
 						{
-							$herefoc = <<< HERE
+							$heredoc = <<< HERE
 							사용할수 없는 검색어입니다.
 							HERE;
 
