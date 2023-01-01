@@ -22,12 +22,9 @@
 	<?php
 		$query = $_GET['query'];
 		$conn = mysqli_connect('localhost', 'kknock', 'kknock', 'test');
+		$filtering = false;
 
-		if(strrpos($query, "union") || strrpos($query, "sleep"))
-		{
-			header("HTTP/1.0 500 Internal Server Error");
-			exit();
-		}
+		if(strrpos($query, "union") || strrpos($query, "sleep")) $filtering = true;
 
 		$sql = "SELECT * FROM board WHERE title LIKE '%{$query}%' OR user_name LIKE '%{$query}%'";
 
@@ -38,6 +35,7 @@
 	<form action="search.php" methdo="get">
 		
 	</form>
+	<script src="main.js"></script>
 </head>
 <body>
 	<div>
@@ -83,18 +81,29 @@
 				</thead>
 				<tbody>
 					<?php
-						while($row = mysqli_fetch_assoc($result))
+						if($filtering)
 						{
-							$heredoc = <<< HERE
-							<tr>
-								<td class="post_num" style="text-align: center;">{$row['post_num']}</td>
-								<td class="post_title"><a href="view.php?number={$row['post_num']}">{$row['title']}</a></td>
-								<td class="user_name" style="text-align: center;">{$row['user_name']}</td>
-								<td class="post_time">{$row['posted']}</td>
-							</tr>
+							$herefoc = <<< HERE
+							사용할수 없는 검색어입니다.
 							HERE;
 
 							echo $heredoc;
+						}
+						else
+						{
+							while($row = mysqli_fetch_assoc($result))
+							{
+								$heredoc = <<< HERE
+								<tr>
+									<td class="post_num" style="text-align: center;">{$row['post_num']}</td>
+									<td class="post_title"><a href="view.php?number={$row['post_num']}">{$row['title']}</a></td>
+									<td class="user_name" style="text-align: center;">{$row['user_name']}</td>
+									<td class="post_time">{$row['posted']}</td>
+								</tr>
+								HERE;
+	
+								echo $heredoc;
+							}
 						}
 					?>
 				</tbody>
