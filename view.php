@@ -39,10 +39,6 @@
 				
 				echo $heredoc;
 			}
-
-			$comment_sql = "SELECT * FROM comment WHERE post_num = $post_num ORDER BY comment_num ASC";
-
-			$comment_result = mysqli_query($conn, $comment_sql);
 		}
 	?>
 	<h1><a href="/">자유게시판</a></h1>
