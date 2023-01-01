@@ -42,6 +42,8 @@
 
 				echo $heredoc;
 			}
+
+			mysqli_stmt_close($stmt);
 		}
 	?>
 </body>
