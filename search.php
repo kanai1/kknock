@@ -24,7 +24,7 @@
 		$conn = mysqli_connect('localhost', 'kknock', 'kknock', 'test');
 		$filtering = false;
 
-		if(strrpos($query, "union") === false || strrpos($query, "sleep") === false) $filtering = true;
+		//if(strrpos($query, "union") === false || strrpos($query, "sleep") === false) $filtering = true;
 
 		$sql = "SELECT * FROM board WHERE title LIKE '%{$query}%' OR user_name LIKE '%{$query}%'";
 
