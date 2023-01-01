@@ -16,9 +16,13 @@
 			$password_again = $_POST['userPasswordAgain'];
 
 			$conn = mysqli_connect('localhost', 'kknock', 'kknock', 'test');
-			$sql_id_find = "SELECT * FROM user_login WHERE login_id='$id'";
+			$sql_id_find = "SELECT * FROM user_login WHERE login_id=?";
 
-			if($result = mysqli_fetch_array(mysqli_query($conn, $sql_id_find)))
+			$stmt = mysqli_stmt_init($conn);
+			mysqli_stmt_prepare($stmt, $sql_id_find);
+			mysqli_stmt_bind_param($stmt, 's', $id);
+
+			if(mysqli_stmt_get_result($stmt))
 			{
 				$heredoc = <<< HERE
 				<span>이미 존재하는 아이디입니다.</span>
