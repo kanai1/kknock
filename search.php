@@ -20,6 +20,8 @@
 		}
 	</style>
 	<?php
+		session_start();
+
 		$query = $_GET['query'];
 		$conn = mysqli_connect('localhost', 'kknock', 'kknock', 'test');
 		$filtering = false;
@@ -31,18 +33,11 @@
 		$result = mysqli_query($conn, $sql);
 		$rows_count = mysqli_num_rows($result);
 	?>
-
-	<form action="search.php" methdo="get">
-		
-	</form>
-	<script src="main.js"></script>
 </head>
 <body>
 	<div>
 		<span style="float:right">		
 			<?php
-				session_start();
-
 				if(!isset($_SESSION['user_name']))
 				{
 					$heredoc = <<< HERE
@@ -110,14 +105,14 @@
 			</table>
 		</div>
 		<?php
-			$heredoc = <<< HERE
-			<button onclick="location.href='write.html'" style="float:right">
-			<span>글쓰기</span>
-			</button>
-			HERE;
-
 			if(isset($_SESSION['user_id']))
 			{
+				$heredoc = <<< HERE
+				<button onclick="location.href='write.html'" style="float:right">
+				<span>글쓰기</span>
+				</button>
+				HERE;
+
 				echo $heredoc;
 			}
 		?>
