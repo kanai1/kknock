@@ -20,8 +20,6 @@
 		}
 	</style>
 	<?php
-		session_start();
-	
 		$conn = mysqli_connect('localhost', 'kknock', 'kknock', 'test');
 		$sql_index = "SELECT * FROM board";
 		$result = mysqli_query($conn, $sql_index);
@@ -86,14 +84,14 @@
 			</table>
 		</div>
 		<?php
-			$heredoc = <<< HERE
-			<button onclick="location.href='write.html'" style="float:right">
-			<span>글쓰기</span>
-			</button>
-			HERE;
-
 			if(isset($_SESSION['user_id']))
 			{
+				$heredoc = <<< HERE
+				<button onclick="location.href='write.html'" style="float:right">
+				<span>글쓰기</span>
+				</button>
+				HERE;
+				
 				echo $heredoc;
 			}
 		?>
