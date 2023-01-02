@@ -16,13 +16,13 @@
 			$password_again = $_POST['userPasswordAgain'];
 
 			$conn = mysqli_connect('localhost', 'kknock', 'kknock', 'test');
-			$sql_id_find = "SELECT * FROM user_login WHERE login_id=?";
+			
+			$stmt = $conn->prepare("SELECT login_id FROM user_login WHERE login_id=?");
+			$stmt->bind_param("s", $id);
+			$stmt->bind_result($login_id);
+			$stmt->execute();
 
-			$stmt = mysqli_stmt_init($conn);
-			mysqli_stmt_prepare($stmt, $sql_id_find);
-			mysqli_stmt_bind_param($stmt, 's', $id);
-
-			if(mysqli_fetch_array(mysqli_stmt_get_result($stmt)))
+			if($stmt->fetch())
 			{
 				$heredoc = <<< HERE
 				<span>이미 존재하는 아이디입니다.</span>
@@ -42,9 +42,12 @@
 			}
 			else
 			{
-				$sql = "INSERT INTO user_login(login_id, login_pw, created, user_name) VALUES ('$id', '$password', now(), '$name')";
+				$stmt->close();
 
-				if($result = mysqli_query($conn, $sql))
+				$stmt = $conn->prepare("INSERT INTO user_login(login_id, login_pw, created, user_name) VALUES (?, ?, now(), ?)");
+				$stmt->bind_param("sss", $id, $password, $name);
+
+				if($stmt->execute())
 				{
 					$heredoc = <<< HERE
 					<span>계정 생성에 성공했습니다.</span>
@@ -72,6 +75,8 @@
 
 			echo $heredoc;
 		}
+		$stmt->close();
+		$conn->close();
 	?>
 </body>
 </html>
