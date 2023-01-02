@@ -29,11 +29,10 @@
 
 			$conn = mysqli_connect('localhost', 'kknock', 'kknock', 'test');
 			$stmt = mysqli_stmt_init($conn);
+			$stmt = $conn->prepare("INSERT INTO board(title, body, user_id, user_name, posted) VALUES (?, ?, ?, ?, now())");
+			$stmt->bind_param('ssss', $title, $body, $user_id, $user_name);
 			
-			mysqli_stmt_prepare($stmt, "INSERT INTO board(title, body, user_id, user_name, posted) VALUES (?, ?, ?, ?, now())");
-			mysqli_stmt_bind_param($stmt, 'ssss', $title, $body, $user_id, $user_name);
-			
-			if(mysqli_stmt_execute($stmt))
+			if($stmt->execute())
 			{
 				$heredoc = <<< HERE
 				<script>
@@ -60,7 +59,8 @@
 		{
 			echo "잘못된 접근입니다.";
 		}
-		mysqli_stmt_close($stmt);
+		$stmt->close();
+		$conn->close();
 	?>
 </body>
 </html>
