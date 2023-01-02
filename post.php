@@ -60,7 +60,7 @@
 		{
 			echo "잘못된 접근입니다.";
 		}
-
+		mysqli_stmt_close($stmt);
 	?>
 </body>
 </html>
