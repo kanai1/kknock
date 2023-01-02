@@ -13,19 +13,18 @@
 			$id = $_POST['txtId'];
 			$password = $_POST['txtPassword'];
 
-			$conn = mysqli_connect('localhost', 'kknock', 'kknock', 'test');
-			$sql = "SELECT * FROM user_login WHERE login_id='$id' && login_pw='$password'";
-			$stmt = mysqli_stmt_init($conn);
-			
-			mysqli_stmt_prepare($stmt, "SELECT * FROM user_login WHERE login_id=? && login_pw=?");
-			mysqli_stmt_bind_param($stmt, 'ss', $id, $password);
+			$conn = new mysqli('localhost', 'kknock', 'kknock', 'test');
+			$Stmt = $stmt->prepare("SELECT user_name, login_id FROM user_login WHERE login_id=? && login_pw=?");
+			$stmt->bind_param("ss", $id, $password);
+			$stmt->execute();
 
-			if($result = mysqli_fetch_array(mysqli_stmt_get_result($stmt)))
+			$stmt->bind_result($name, $login_id);
+			if($stmt->fetch())
 			{
 				session_start();
 
-				$_SESSION['user_name'] = $result['user_name'];
-				$_SESSION['user_id'] = $result['login_id'];
+				$_SESSION['user_name'] = $name;
+				$_SESSION['user_id'] = $login_id;
 
 				$heredoc = <<< HERE
 				<script>location.replace('/')</script>
@@ -43,7 +42,8 @@
 				echo $heredoc;
 			}
 
-			mysqli_stmt_close($stmt);
+			$stmt->close();
+			$conn->close();
 		}
 	?>
 </body>
