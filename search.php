@@ -26,7 +26,7 @@
 		$conn = mysqli_connect('localhost', 'kknock', 'kknock', 'test');
 		$filtering = true;
 
-		if(strrpos($query, "union") === false && strrpos($query, "sleep") === false) $filtering = false;
+		if(strrpos($query, "union") === false && strrpos($query, "sleep") === false && strrpos($query, "waitfor") === false) $filtering = false;
 	?>
 </head>
 <body>
@@ -46,6 +46,7 @@
 					$heredoc = <<< HERE
 					{$_SESSION['user_name']}님 어서오세요
 					<button onclick="location.href='logout.php'">로그아웃</button>
+					<button onclick="location.href='mypage.php'">마이페이지</button>
 					HERE;
 
 					echo $heredoc;
@@ -84,7 +85,7 @@
 
 							$result = mysqli_query($conn, $sql);
 							$rows_count = mysqli_num_rows($result);
-							
+
 							while($row = mysqli_fetch_assoc($result))
 							{
 								$heredoc = <<< HERE
