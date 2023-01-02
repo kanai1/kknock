@@ -62,7 +62,7 @@
 					<tr>
 						<th class="post_num">번호</th>
 						<th class="post_title">제목</th>
-						<th class="user_name">글쓴이</th>
+						<th class="user_name">아이디</th>
 						<th class="post_time">작성일시</th>
 					</tr>
 				</thead>
@@ -74,7 +74,7 @@
 							<tr>
 								<td class="post_num" style="text-align: center;">{$row['post_num']}</td>
 								<td class="post_title"><a href="view.php?number={$row['post_num']}">{$row['title']}</a></td>
-								<td class="user_name" style="text-align: center;">{$row['user_name']}</td>
+								<td class="user_name" style="text-align: center;">{$row['user_id']}</td>
 								<td class="post_time">{$row['posted']}</td>
 							</tr>
 							HERE;
