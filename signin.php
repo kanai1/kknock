@@ -14,7 +14,7 @@
 			$password = $_POST['txtPassword'];
 
 			$conn = new mysqli('localhost', 'kknock', 'kknock', 'test');
-			$Stmt = $stmt->prepare("SELECT user_name, login_id FROM user_login WHERE login_id=? && login_pw=?");
+			$Stmt = $conn->prepare("SELECT user_name, login_id FROM user_login WHERE login_id=? && login_pw=?");
 			$stmt->bind_param("ss", $id, $password);
 			$stmt->execute();
 
