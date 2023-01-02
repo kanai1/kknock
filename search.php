@@ -27,11 +27,6 @@
 		$filtering = true;
 
 		if(strrpos($query, "union") === false && strrpos($query, "sleep") === false) $filtering = false;
-
-		$sql = "SELECT * FROM board WHERE title LIKE '%{$query}%' OR user_name LIKE '%{$query}%'";
-
-		$result = mysqli_query($conn, $sql);
-		$rows_count = mysqli_num_rows($result);
 	?>
 </head>
 <body>
@@ -86,6 +81,11 @@
 						}
 						else
 						{
+							$sql = "SELECT * FROM board WHERE title LIKE '%{$query}%' OR user_name LIKE '%{$query}%'";
+
+							$result = mysqli_query($conn, $sql);
+							$rows_count = mysqli_num_rows($result);
+							
 							while($row = mysqli_fetch_assoc($result))
 							{
 								$heredoc = <<< HERE
