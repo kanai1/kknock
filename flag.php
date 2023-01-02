@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	$flag = 'KCTF{this_is_flag!!}';
+	$flag = 'KCTF{Th1s_1s_Adm1n_P4age..!}';
 
 	if(!isset($_SESSION['user_id']))
 	{
