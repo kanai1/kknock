@@ -70,8 +70,8 @@
 					<?php
 						while($row = mysqli_fetch_assoc($result))
 						{
-							$title = htmlspecialchars($row['title'])
-							$user_id = htmlspecialchars($row['user_id'])
+							$title = htmlspecialchars($row['title']);
+							$user_id = htmlspecialchars($row['user_id']);
 							$heredoc = <<< HERE
 							<tr>
 								<td class="post_num" style="text-align: center;">{$row['post_num']}</td>
