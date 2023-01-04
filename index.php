@@ -41,8 +41,10 @@
 				}
 				else
 				{
+					$user_name = htmlspecialchars($_SESSION['user_name']);
+					
 					$heredoc = <<< HERE
-					{$_SESSION['user_name']}님 어서오세요
+					{$user_name}님 어서오세요
 					<button onclick="location.href='logout.php'">로그아웃</button>
 					HERE;
 
