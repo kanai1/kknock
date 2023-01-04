@@ -54,6 +54,6 @@
 <body>
 	<div>
 		<h2><?php echo htmlspecialchars($result['title']) ?></h2>
-		<p> <?php echo htmlspecialchars(nl2br($result['body'])) ?></p>
+		<p> <?php echo nl2br(htmlspecialchars($result['body'])) ?></p>
 </body>
 </html>
