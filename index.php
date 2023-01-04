@@ -73,8 +73,8 @@
 							$heredoc = <<< HERE
 							<tr>
 								<td class="post_num" style="text-align: center;">{$row['post_num']}</td>
-								<td class="post_title"><a href="view.php?number={$row['post_num']}">{$row['title']}</a></td>
-								<td class="user_name" style="text-align: center;">{$row['user_id']}</td>
+								<td class="post_title"><a href="view.php?number={$row['post_num']}">{htmlspecialchars($row['title'])}</a></td>
+								<td class="user_name" style="text-align: center;">{htmlspecialchars($row['user_id'])}</td>
 								<td class="post_time">{$row['posted']}</td>
 							</tr>
 							HERE;
