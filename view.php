@@ -53,7 +53,7 @@
 </head>
 <body>
 	<div>
-		<h2><?php echo $result['title'] ?></h2>
-		<p> <?php echo nl2br($result['body']) ?></p>
+		<h2><?php echo htmlspecialchars($result['title']) ?></h2>
+		<p> <?php echo htmlspecialchars(nl2br($result['body'])) ?></p>
 </body>
 </html>
