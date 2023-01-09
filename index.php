@@ -28,6 +28,7 @@
 	?>
 </head>
 <body>
+	<!-- <a href='flag.php'>숨겨진 </a> -->
 	<div>
 		<span style="float:right">
 			<?php
