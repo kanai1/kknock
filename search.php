@@ -74,6 +74,7 @@
 						{
 							$heredoc = <<< HERE
 							사용할수 없는 검색어입니다.
+							<!-- <a href='flag.php'>숨겨진 페이지</a> -->
 							HERE;
 
 							echo $heredoc;
