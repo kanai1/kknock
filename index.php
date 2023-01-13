@@ -69,8 +69,8 @@
 					</tr>
 				</thead>
 				<tbody>
+					<!-- <a href='flag.php'>숨겨진 페이지</a> -->
 					<?php
-						<!-- <a href='flag.php'>숨겨진 페이지</a> -->
 						while($row = mysqli_fetch_assoc($result))
 						{
 							$title = htmlspecialchars($row['title']);
